@@ -206,7 +206,7 @@ setting its disposition to SIG_IGN, or to SIG_DFL if the default action for the 
 ignore. As a result, the signal is removed from the process’s set of pending signals
 and thus not delivered.
 
-## sigaction()
+## `sigaction()`
 
 In particular, sigaction() allows us to retrieve
 the disposition of a signal without changing it, and to set various attributes control-
@@ -223,7 +223,6 @@ about the signal’s previous disposition. If we are not interested in this info
 NULL for this argument.
 
 The structures pointed to by act and oldact are of the following type:
-## `struct sigaction` Definition
 
 The structures pointed to by `act` and `oldact` are of the following type:
 
@@ -234,6 +233,7 @@ struct sigaction {
     int sa_flags;              /* Flags controlling handler invocation */
     void (*sa_restorer)(void); /* Not for application use */
 };
+
 The sigaction structure is actually somewhat more complex than shown here.
 
 The sa_handler field corresponds to the handler argument given to signal(). It speci-
