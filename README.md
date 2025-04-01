@@ -227,7 +227,7 @@ struct sigaction {
     void        (*sa_handler)(int); /* Address of handler */
     sigset_t    sa_mask; /* Signals blocked during handler invocation */
     int         sa_flags;  /* Flags controlling handler invocation */
-     void       (*sa_restorer)(void); /* Not for application use */
+    void       (*sa_restorer)(void); /* Not for application use */
 };
 
 The sigaction structure is actually somewhat more complex than shown here.
