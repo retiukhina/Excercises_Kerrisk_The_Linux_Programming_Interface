@@ -231,7 +231,7 @@ struct sigaction
     int         sa_flags;  /* Flags controlling handler invocation */
     void       (*sa_restorer)(void); /* Not for application use */
 };
-
+```c
 The sigaction structure is actually somewhat more complex than shown here.
 
 The sa_handler field corresponds to the handler argument given to signal(). It speci-
