@@ -223,15 +223,17 @@ about the signal’s previous disposition. If we are not interested in this info
 NULL for this argument.
 
 The structures pointed to by act and oldact are of the following type:
+## `struct sigaction` Definition
+
+The structures pointed to by `act` and `oldact` are of the following type:
+
 ```c
-struct sigaction
-{
-    void        (*sa_handler)(int); /* Address of handler */
-    sigset_t    sa_mask; /* Signals blocked during handler invocation */
-    int         sa_flags;  /* Flags controlling handler invocation */
-    void       (*sa_restorer)(void); /* Not for application use */
+struct sigaction {
+    void (*sa_handler)(int);   /* Address of handler */
+    sigset_t sa_mask;          /* Signals blocked during handler invocation */
+    int sa_flags;              /* Flags controlling handler invocation */
+    void (*sa_restorer)(void); /* Not for application use */
 };
-```c
 The sigaction structure is actually somewhat more complex than shown here.
 
 The sa_handler field corresponds to the handler argument given to signal(). It speci-
