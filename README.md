@@ -223,6 +223,7 @@ about the signal’s previous disposition. If we are not interested in this info
 NULL for this argument.
 
 The structures pointed to by act and oldact are of the following type:
+```c
 struct sigaction
 {
     void        (*sa_handler)(int); /* Address of handler */
