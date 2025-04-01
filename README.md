@@ -223,7 +223,8 @@ about the signal’s previous disposition. If we are not interested in this info
 NULL for this argument.
 
 The structures pointed to by act and oldact are of the following type:
-struct sigaction {
+struct sigaction 
+{
     void        (*sa_handler)(int); /* Address of handler */
     sigset_t    sa_mask; /* Signals blocked during handler invocation */
     int         sa_flags;  /* Flags controlling handler invocation */
