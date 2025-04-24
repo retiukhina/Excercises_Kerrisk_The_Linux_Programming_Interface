@@ -3,6 +3,9 @@
 #include <signal.h>
 #include <unistd.h>
 
+/*  A program that shows that when the disposition of a pending signal is
+changed to be SIG_IGN, the program never sees (catches) the signal. */
+
 void handler(int sig) 
 {
     const char msg[] = "Signal caught!\n";

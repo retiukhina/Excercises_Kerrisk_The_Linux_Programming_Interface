@@ -1,9 +1,0 @@
-Exercises [1]
-
-1. Write a program that shows that when the disposition of a pending signal is
-changed to be SIG_IGN, the program never sees (catches) the signal.
-2. Write programs that verify the effect of the SA_RESETHAND and SA_NODEFER flags when
-establishing a signal handler with sigaction().
-3. Implement siginterrupt() using sigaction().
-
-1. M. Kerrisk, The Linux Programming Interface: A Linux and UNIX System Programming Handbook. San Francisco, CA: No Starch Press, 2010.
