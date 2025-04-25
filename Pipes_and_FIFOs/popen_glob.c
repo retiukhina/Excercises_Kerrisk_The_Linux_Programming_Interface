@@ -1,3 +1,9 @@
+
+/*  Demonstrate the use of popen() and pclose(). 
+    This program reads filename wildcard patterns from standard input and
+    passes each pattern to a popen() call that returns the output from ls(1)
+    for the wildcard pattern. The program displays the returned output. */
+
 #include <ctype.h>
 #include "include/print_wait_status.h"
 #include "include/tlpi_hdr.h"
@@ -26,7 +32,13 @@ int main(int argc, char *argv[])
             continue;  // Skip the current iteration and ask for another pattern
         if (pat[len - 1] == '\n')  // If the last character of the input is a newline
             pat[len - 1] = '\0';  // Remove the newline character by replacing it with a null terminator
-        // Loop through the pattern to check for any invalid characters
+        
+            /* Ensure that the pattern contains only valid characters,
+        i.e., letters, digits, underscore, dot, and the shell
+        globbing characters. (Our definition of valid is more
+        restrictive than the shell, which permits other characters
+        to be included in a filename if they are quoted.) */
+        
         for (j = 0, badPattern = FALSE; j < len && !badPattern; j++)
             if (!isalnum((unsigned char) pat[j]) &&  // If the character is not alphanumeric
                 strchr("_*?[^-].", pat[j]) == NULL)  // Or not a valid wildcard character

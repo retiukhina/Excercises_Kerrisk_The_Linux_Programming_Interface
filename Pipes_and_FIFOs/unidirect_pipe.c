@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 {
     char buf[BUF_SIZE];
     int  fds[2];
-    ssize_t numRead;
+    ssize_t num_read;
 
     if (argc < 2)
         return 0;
@@ -28,12 +28,12 @@ int main(int argc, char **argv)
                  /* Child now reads from pipe and write to stdout*/
             for(;;)
             {
-                numRead = read(fds[0], buf, BUF_SIZE);
-                if (numRead == -1)
+                num_read = read(fds[0], buf, BUF_SIZE);
+                if (num_read == -1)
                     exit(EXIT_FAILURE);
-                if (numRead == 0)
+                if (num_read == 0)
                     break;
-                if (write(STDOUT_FILENO, buf, numRead) != numRead)
+                if (write(STDOUT_FILENO, buf, num_read) != num_read)
                 {
                     printf("\nchild - partial/failed write\n");
                     exit(EXIT_FAILURE);
